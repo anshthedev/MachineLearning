@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6292b135-622a-41ae-8276-232262972efb" name="Changes" comment="Learning how to clean data and it up for machine learning">
-      <change afterPath="$PROJECT_DIR$/CleaningSamsthanOrder.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CleaningData.py" beforeDir="false" afterPath="$PROJECT_DIR$/CleaningData.py" afterDir="false" />
-    </list>
+    <list default="true" id="6292b135-622a-41ae-8276-232262972efb" name="Changes" comment="Learning how to clean data and it up for machine learning" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -59,7 +55,7 @@
       <updated>1724254280098</updated>
       <workItem from="1724254284739" duration="14442000" />
       <workItem from="1724682550478" duration="1456000" />
-      <workItem from="1724684365183" duration="14880000" />
+      <workItem from="1724684365183" duration="15477000" />
     </task>
     <task id="LOCAL-00001" summary="Learning how to clean data and it up for machine learning">
       <option name="closed" value="true" />
