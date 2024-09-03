@@ -1,18 +1,45 @@
 import pandas as pd
 
 columnIndex = 0
+isDropBillingName = False
+rows_to_drop = []
 
 df = pd.read_csv(r"/Users/ansh/Downloads/samsthanorderlist.csv")
 
-df = df.drop(columns=["status", "created_on", "fulfilled_on", "disputed_on", "refunded_on"])
-for x in df.columns:
-    if 3 < columnIndex and columnIndex < 20:
-        df = df.drop(columns=[x], inplace=True)
+#Dropping uneeded columns
+df = df.drop(columns=["status", "created_on", "fulfilled_on", "disputed_on", "refunded_on", "shipping_total", "discounts_code"])
+df = df.drop(columns=df.columns[4:21])
+df = df.drop(columns=df.columns[9:19])
+df = df.drop(columns=df.columns[10:21])
+df= df.drop(columns=["discounts_total", "taxes_total", 'order_total'])
+
 
 for x in df.index:
-    if df.loc[x, "items_count"] > 50:
-        df.drop(x, inplace=True)
+    #Removing orders that are actually donations
+    if df.loc[x, "items_count"] > 50 or df.loc[x, "line_item_product"] == "General Donation":
+        rows_to_drop.append(x)
 
-    columnIndex += 1
 
 
+    #Removing the billing_name if the name matches
+    if df.loc[x, "customer_full_name"] == df.loc[x, "billing_address_addressee"]:
+        isDropBillingName = True
+    else:
+        isDropBillingName = False
+
+    #Converts all fullnames into the correct format
+    df.loc[x, "customer_full_name"] = df.loc[x, "customer_full_name"].replace(df.loc[x, "customer_full_name"], df.loc[x, "customer_full_name"].title())
+
+df.drop(index=rows_to_drop, inplace=True)
+
+if isDropBillingName:
+    df.drop(columns=["billing_address_addressee"], inplace=True)
+
+
+df = df.sort_values(by='customer_full_name')
+
+df.reset_index(drop=True, inplace=True)
+
+
+
+df.to_csv("/Users/ansh/Downloads/exportorder2.csv")
