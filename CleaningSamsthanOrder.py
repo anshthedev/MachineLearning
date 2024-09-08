@@ -11,7 +11,7 @@ df = df.drop(columns=["status", "created_on", "fulfilled_on", "disputed_on", "re
 df = df.drop(columns=df.columns[4:21])
 df = df.drop(columns=df.columns[9:19])
 df = df.drop(columns=df.columns[10:21])
-df= df.drop(columns=["discounts_total", "taxes_total", 'order_total'])
+df = df.drop(columns=["discounts_total", "taxes_total", 'order_total'])
 
 
 for x in df.index:
