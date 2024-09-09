@@ -35,8 +35,20 @@ df.drop(index=rows_to_drop, inplace=True)
 if isDropBillingName:
     df.drop(columns=["billing_address_addressee"], inplace=True)
 
+df['items_count'] = df['items_count'].astype(str)
 
 df = df.sort_values(by='customer_full_name')
+
+
+#Trying to combine subtotal and add it
+# df["subtotal"] = df["subtotal"].str.replace("$", "")
+
+# df['subtotal'] = df['subtotal'].astype(int)
+
+
+
+df = df.groupby(['customer_full_name', 'customer_email']).agg({'line_item_product': ', '.join, 'items_count' : lambda x: ', '.join(map(str, x)), 'subtotal' : 'sum'}).reset_index()
+
 
 df.reset_index(drop=True, inplace=True)
 
