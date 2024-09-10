@@ -19,6 +19,9 @@ for x in df.index:
     if df.loc[x, "items_count"] > 50 or df.loc[x, "line_item_product"] == "General Donation":
         rows_to_drop.append(x)
 
+    if df.loc[x, "line_item_product"] == 'Test':
+        rows_to_drop.append(x)
+
 
 
     #Removing the billing_name if the name matches
@@ -40,12 +43,11 @@ df['items_count'] = df['items_count'].astype(str)
 df = df.sort_values(by='customer_full_name')
 
 
-#Trying to combine subtotal and add it
-# df["subtotal"] = df["subtotal"].str.replace("$", "")
+# Trying to combine subtotal and add it
+df["subtotal"] = df["subtotal"].str.replace("$", "")
+df["subtotal"] = df["subtotal"].str.replace(".00", "")
 
-# df['subtotal'] = df['subtotal'].astype(int)
-
-
+df['subtotal'] = df['subtotal'].astype(int)
 
 df = df.groupby(['customer_full_name', 'customer_email']).agg({'line_item_product': ', '.join, 'items_count' : lambda x: ', '.join(map(str, x)), 'subtotal' : 'sum'}).reset_index()
 
