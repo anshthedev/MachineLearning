@@ -34,8 +34,9 @@ for filename in os.listdir(directory):
                                 value2 = row[df.columns[1]]  # y value
                                 value3 = row[df.columns[2]]  # z value
 
-                                vector_displacement = math.sqrt(value1 ** 2 + value2 ** 2  + value3 ** 2)
+                                vector_displacement_mag = math.sqrt(value1 ** 2 + value2 ** 2  + value3 ** 2)
 
-                                new_df = pd.concat([new_df, pd.DataFrame([{df.columns[1] : vector_displacement}])], ignore_index=True)
+                                new_df = pd.concat([new_df, pd.DataFrame([{df.columns[1] : vector_displacement_mag}])], ignore_index=True)
 
-                        print(new_df)
+
+                        value = new_df[0, 1]
