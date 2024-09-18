@@ -5,8 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6292b135-622a-41ae-8276-232262972efb" name="Changes" comment="Learning how to clean data and it up for machine learning">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccCombineAlgorithm.py" beforeDir="false" afterPath="$PROJECT_DIR$/AccCombineAlgorithm.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccCombineAlgorithm.py" beforeDir="false" afterPath="$PROJECT_DIR$/Research/AccCombineAlgorithm.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CleaningData.py" beforeDir="false" afterPath="$PROJECT_DIR$/CleaningData/CleaningData.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CleaningSamsthanOrder.py" beforeDir="false" afterPath="$PROJECT_DIR$/CleaningData/CleaningSamsthanOrder.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CombiningResearchDataset.py" beforeDir="false" afterPath="$PROJECT_DIR$/Research/CombiningResearchDataset.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LinearClassification.py" beforeDir="false" afterPath="$PROJECT_DIR$/MachineLearning/LinearClassification.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Testing.py" beforeDir="false" afterPath="$PROJECT_DIR$/MachineLearning/Testing.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/matplotlibLearning.py" beforeDir="false" afterPath="$PROJECT_DIR$/MachineLearning/matplotlibLearning.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +73,7 @@
       <workItem from="1724943538389" duration="43000" />
       <workItem from="1725635552941" duration="4051000" />
       <workItem from="1725896110497" duration="23294000" />
-      <workItem from="1726153019225" duration="32001000" />
+      <workItem from="1726153019225" duration="32435000" />
     </task>
     <task id="LOCAL-00001" summary="Learning how to clean data and it up for machine learning">
       <option name="closed" value="true" />
