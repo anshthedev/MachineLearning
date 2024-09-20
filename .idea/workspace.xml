@@ -5,13 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6292b135-622a-41ae-8276-232262972efb" name="Changes" comment="Learning how to clean data and it up for machine learning">
-      <change beforePath="$PROJECT_DIR$/AccCombineAlgorithm.py" beforeDir="false" afterPath="$PROJECT_DIR$/Research/AccCombineAlgorithm.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CleaningData.py" beforeDir="false" afterPath="$PROJECT_DIR$/CleaningData/CleaningData.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CleaningSamsthanOrder.py" beforeDir="false" afterPath="$PROJECT_DIR$/CleaningData/CleaningSamsthanOrder.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CombiningResearchDataset.py" beforeDir="false" afterPath="$PROJECT_DIR$/Research/CombiningResearchDataset.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LinearClassification.py" beforeDir="false" afterPath="$PROJECT_DIR$/MachineLearning/LinearClassification.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Testing.py" beforeDir="false" afterPath="$PROJECT_DIR$/MachineLearning/Testing.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/matplotlibLearning.py" beforeDir="false" afterPath="$PROJECT_DIR$/MachineLearning/matplotlibLearning.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Research/AccCombineAlgorithm.py" beforeDir="false" afterPath="$PROJECT_DIR$/Research/AccCombineAlgorithm.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,27 +25,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python tests.Doctests in validation.executor": "Run",
-    "Python.AccCombineAlgorithm.executor": "Run",
-    "Python.CleaningData.executor": "Run",
-    "Python.CleaningSamsthanOrder.executor": "Run",
-    "Python.LinearClassification.executor": "Run",
-    "Python.ResearchDataset.executor": "Run",
-    "Python.Testing.executor": "Run",
-    "Python.firstPython.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "database.data.views",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python tests.Doctests in validation.executor&quot;: &quot;Run&quot;,
+    &quot;Python.AccCombineAlgorithm.executor&quot;: &quot;Run&quot;,
+    &quot;Python.CleaningData.executor&quot;: &quot;Run&quot;,
+    &quot;Python.CleaningSamsthanOrder.executor&quot;: &quot;Run&quot;,
+    &quot;Python.LinearClassification.executor&quot;: &quot;Run&quot;,
+    &quot;Python.ResearchDataset.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Testing.executor&quot;: &quot;Run&quot;,
+    &quot;Python.firstPython.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;database.data.views&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/MachineLearning" />
+      <recent name="$PROJECT_DIR$/Research" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/CleaningData" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -73,7 +76,8 @@
       <workItem from="1724943538389" duration="43000" />
       <workItem from="1725635552941" duration="4051000" />
       <workItem from="1725896110497" duration="23294000" />
-      <workItem from="1726153019225" duration="32435000" />
+      <workItem from="1726153019225" duration="37150000" />
+      <workItem from="1726757563871" duration="2444000" />
     </task>
     <task id="LOCAL-00001" summary="Learning how to clean data and it up for machine learning">
       <option name="closed" value="true" />
@@ -110,7 +114,7 @@
     <SUITE FILE_PATH="coverage/LearningPython$Doctests_in_validation.coverage" NAME="Doctests in validation Coverage Results" MODIFIED="1725635885879" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/.venv/lib/python3.12/site-packages/sklearn/utils" />
     <SUITE FILE_PATH="coverage/LearningPython$ResearchDataset.coverage" NAME="ResearchDataset Coverage Results" MODIFIED="1726154413388" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/LearningPython$LinearClassification.coverage" NAME="LinearClassification Coverage Results" MODIFIED="1725637172253" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/LearningPython$AccCombineAlgorithm.coverage" NAME="AccCombineAlgorithm Coverage Results" MODIFIED="1726671951434" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/LearningPython$AccCombineAlgorithm.coverage" NAME="AccCombineAlgorithm Coverage Results" MODIFIED="1726759204275" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Research" />
     <SUITE FILE_PATH="coverage/LearningPython$CleaningData.coverage" NAME="CleaningData Coverage Results" MODIFIED="1724773607773" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/LearningPython$CleaningSamsthanOrder.coverage" NAME="CleaningSamsthanOrder Coverage Results" MODIFIED="1725983181306" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>

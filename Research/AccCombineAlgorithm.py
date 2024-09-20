@@ -1,42 +1,78 @@
 import math
 import os
 import pandas as pd
+import numpy as np
 
 
 directory = '/Users/ansh/Downloads/S Nallamothu and C Culbertson 2023'
 
-#Iteraters through particpants
-for filename in os.listdir(directory):
-    f = os.path.join(directory, filename)
 
-    #Iterates through different times
-    if os.path.isdir(f):
-        for filename2 in os.listdir(f):
-            f2 = os.path.join(f, filename2)
+def getFiles(searchterm):
+    filelist = []
 
-            #Iterates through .csv files
-            if os.path.isdir(f2):
-                for file in os.listdir(f2):
-                    f3 = os.path.join(f2, file)
+    for dirpath, dirnames, filenames in os.walk(directory):  # gets all filenames in all subdirectories
 
+        for f in filenames:
 
-                    if file == "ACC.csv" and filename2 == "1647705360_A00925" :
-                        # Logic for Finding Vector Displacment
+            if f.__contains__(searchterm):  # filter, then ...
 
-                        df = pd.read_csv(f3)
-                        new_df = df.iloc[:1]
-                        new_df = new_df.drop(columns = new_df.columns[1:3])
+                filelist = np.append(filelist, os.path.join(dirpath, f))  # create list of target files
 
-                        for index, row in df.iterrows():
-
-                            if index != 0:
-                                value1 = row[df.columns[0]]  # x value
-                                value2 = row[df.columns[1]]  # y value
-                                value3 = row[df.columns[2]]  # z value
-
-                                vector_displacement_mag = math.sqrt(value1 ** 2 + value2 ** 2  + value3 ** 2)
-
-                                new_df = pd.concat([new_df, pd.DataFrame([{df.columns[1] : vector_displacement_mag}])], ignore_index=True)
+    return filelist
 
 
-                        value = new_df[0, 1]
+
+def extractHeadersAndData(filename, numHeaderRows):
+    fullArray = np.loadtxt(filename, delimiter=',')
+
+    headers = fullArray[:numHeaderRows]  # use slice operator to extract rows
+
+    data = fullArray[numHeaderRows:]
+
+    headers = np.append(headers, (len(data)))  # add extra header row holding number of data rows
+
+    return headers, data  # return tuple of header rows and data rows
+
+
+def calcMagnitudes(xyzArray):
+    magnitudes = []  # remove time header rows
+
+    for row in range(len(xyzArray)):
+        mag =  math.sqrt(xyzArray[row][0] ** 2 + xyzArray[row][1] ** 2 + xyzArray[row][2] ** 2)
+
+        magnitudes.append(mag)
+
+    return magnitudes
+
+
+def makeTimestamps(headerRows):
+
+    starttime = headerRows[0]
+
+    frequency = headerRows[1]
+
+    numSamples = headerRows[2]
+
+    endtime = starttime + numSamples / frequency
+
+    timestamps = np.arange(starttime, endtime, 1 / frequency)
+
+    return timestamps
+
+
+# main
+
+files = getFiles('ACC.csv')
+
+for file in files:
+    headers, data = extractHeadersAndData(file, 2)
+
+    times = makeTimestamps(headers)
+
+    mags = calcMagnitudes(data)
+
+print(mags)
+
+
+
+    # figure out how to stack these two vectors (1d arrays) into a 2d array with each row being [time, magnitude]
