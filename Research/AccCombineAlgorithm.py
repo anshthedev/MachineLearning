@@ -3,8 +3,11 @@ import os
 import pandas as pd
 import numpy as np
 
+from MachineLearning.LinearClassification import new_df
 
-directory = '/Users/ansh/Downloads/S Nallamothu and C Culbertson 2023'
+# directory = '/Users/ansh/Downloads/S Nallamothu and C Culbertson 2023'
+
+directory = '/Users/ansh/Downloads/1647012716_A00925'
 
 
 def getFiles(searchterm):
@@ -25,7 +28,9 @@ def getFiles(searchterm):
 def extractHeadersAndData(filename, numHeaderRows):
     fullArray = np.loadtxt(filename, delimiter=',')
 
-    headers = fullArray[:numHeaderRows]  # use slice operator to extract rows
+    headers = fullArray[:numHeaderRows] # use slice operator to extract rows
+
+    headers = headers[:, 1]     # remove all but first column
 
     data = fullArray[numHeaderRows:]
 
@@ -71,8 +76,6 @@ for file in files:
 
     mags = calcMagnitudes(data)
 
-print(mags)
-
-
+    final_df = pd.DataFrame({'TimeStamp': times, 'AccMag': mags})
 
     # figure out how to stack these two vectors (1d arrays) into a 2d array with each row being [time, magnitude]
