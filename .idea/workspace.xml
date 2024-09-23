@@ -77,7 +77,7 @@
       <workItem from="1725635552941" duration="4051000" />
       <workItem from="1725896110497" duration="23294000" />
       <workItem from="1726153019225" duration="37150000" />
-      <workItem from="1726757563871" duration="9243000" />
+      <workItem from="1726757563871" duration="11732000" />
     </task>
     <task id="LOCAL-00001" summary="Learning how to clean data and it up for machine learning">
       <option name="closed" value="true" />
@@ -114,7 +114,7 @@
     <SUITE FILE_PATH="coverage/LearningPython$Doctests_in_validation.coverage" NAME="Doctests in validation Coverage Results" MODIFIED="1725635885879" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/.venv/lib/python3.12/site-packages/sklearn/utils" />
     <SUITE FILE_PATH="coverage/LearningPython$ResearchDataset.coverage" NAME="ResearchDataset Coverage Results" MODIFIED="1726154413388" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/LearningPython$LinearClassification.coverage" NAME="LinearClassification Coverage Results" MODIFIED="1725637172253" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/LearningPython$AccCombineAlgorithm.coverage" NAME="AccCombineAlgorithm Coverage Results" MODIFIED="1726846532630" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Research" />
+    <SUITE FILE_PATH="coverage/LearningPython$AccCombineAlgorithm.coverage" NAME="AccCombineAlgorithm Coverage Results" MODIFIED="1727104345243" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Research" />
     <SUITE FILE_PATH="coverage/LearningPython$CleaningData.coverage" NAME="CleaningData Coverage Results" MODIFIED="1724773607773" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/LearningPython$CleaningSamsthanOrder.coverage" NAME="CleaningSamsthanOrder Coverage Results" MODIFIED="1725983181306" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>

@@ -5,9 +5,7 @@ import numpy as np
 
 from MachineLearning.LinearClassification import new_df
 
-# directory = '/Users/ansh/Downloads/S Nallamothu and C Culbertson 2023'
-
-directory = '/Users/ansh/Downloads/1647012716_A00925'
+directory = '/Users/ansh/PycharmProjects/LearningPython/Research/S Nallamothu and C Culbertson 2023'
 
 
 def getFiles(searchterm):
@@ -68,6 +66,7 @@ def makeTimestamps(headerRows):
 # main
 
 files = getFiles('ACC.csv')
+print(files)
 
 for file in files:
     headers, data = extractHeadersAndData(file, 2)
@@ -78,4 +77,5 @@ for file in files:
 
     final_df = pd.DataFrame({'TimeStamp': times, 'AccMag': mags})
 
-    # figure out how to stack these two vectors (1d arrays) into a 2d array with each row being [time, magnitude]
+    final_df.to_csv(file.strip('ACC.csv') + 'ACCMag.csv', index=False)
+    print(file.strip('ACC.csv') + 'ACCMag.csv')
