@@ -4,7 +4,7 @@ import pandas as pd
 import numpy as np
 
 
-directory = '/Users/ansh/PycharmProjects/LearningPython/Research/Particiapant'
+directory = '/Users/ansh/PycharmProjects/LearningPython/Research/Particiapnt 1'
 
 
 def getFiles(searchterm):
