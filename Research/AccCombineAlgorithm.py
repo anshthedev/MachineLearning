@@ -3,9 +3,8 @@ import os
 import pandas as pd
 import numpy as np
 
-from MachineLearning.LinearClassification import new_df
 
-directory = '/Users/ansh/PycharmProjects/LearningPython/Research/S Nallamothu and C Culbertson 2023'
+directory = '/Users/ansh/PycharmProjects/LearningPython/Research/Particiapant'
 
 
 def getFiles(searchterm):
@@ -66,7 +65,6 @@ def makeTimestamps(headerRows):
 # main
 
 files = getFiles('ACC.csv')
-print(files)
 
 for file in files:
     headers, data = extractHeadersAndData(file, 2)
@@ -78,4 +76,4 @@ for file in files:
     final_df = pd.DataFrame({'TimeStamp': times, 'AccMag': mags})
 
     final_df.to_csv(file.strip('ACC.csv') + 'ACCMag.csv', index=False)
-    print(file.strip('ACC.csv') + 'ACCMag.csv')
+
