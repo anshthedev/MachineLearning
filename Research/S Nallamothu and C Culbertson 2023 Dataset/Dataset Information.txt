@@ -1,7 +1,0 @@
-This folder contains the dataset referenced by "Using Wearable Sensors to Identify and Predict Vasovagal Syncope in Persons with Postural Orthostatic Tachycardia Syndrome".
-
-Inside the folder for each participant, there are separate folders for each daily recording session. They are labeled with the unix taimstamp of the start of recording. Inside each dail folder are separate CSV files for each sensor, a timestamp file, and an notes file on data formats.
-   
-
-Copyright 2023 S. Nallamothu & C. Culbertson
-This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
