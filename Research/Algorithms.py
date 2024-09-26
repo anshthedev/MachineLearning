@@ -6,7 +6,6 @@ import numpy as np
 # used one particpant as testcase due to GitHub sizing limit
 directory = '/Users/ansh/PycharmProjects/LearningPython/Research/Particiapnt 1'
 
-
 def getFiles(searchterm):
     filelist = []
 
@@ -73,7 +72,9 @@ for file in files:
 
     mags = calcMagnitudes(data)
 
+    # sets up new dataframe
     final_df = pd.DataFrame({'TimeStamp': times, 'AccMag': mags})
 
+    # creates new file to be stored
     final_df.to_csv(file.strip('ACC.csv') + 'ACCMag.csv', index=False)
 

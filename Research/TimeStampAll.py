@@ -4,7 +4,7 @@ import pandas as pd
 import numpy as np
 
 # used one particpant as testcase due to GitHub sizing limit
-directory = '/Users/ansh/PycharmProjects/LearningPython/Research/Particiapnt 1'
+directory = '/Users/ansh/PycharmProjects/LearningPython/Research/Particiapnt 1/1647012716_A00925'
 
 
 def getFiles(searchterm):
@@ -64,16 +64,29 @@ def makeTimestamps(headerRows):
 
 # main
 
-files = getFiles('ACC.csv')
+# AccFiles = getFiles('ACC.csv')
+#
+# for file in AccFiles:
+#     headers, data = extractHeadersAndData(file, 2)
+#
+#     times = makeTimestamps(headers)
+#
+#     mags = calcMagnitudes(data)
+#
+#     final_df = pd.DataFrame({'TimeStamp': times, 'AccMag': mags})
+#
+#     final_df.to_csv(file.strip('ACC.csv') + 'ACCMag.csv', index=False)
 
-for file in files:
-    headers, data = extractHeadersAndData(file, 2)
+HrFiles = getFiles('HR.csv')
 
-    times = makeTimestamps(headers)
+for file in HrFiles:
 
-    mags = calcMagnitudes(data)
+    fullArray = np.loadtxt(file, delimiter=',')
 
-    final_df = pd.DataFrame({'TimeStamp': times, 'AccMag': mags})
+    times = makeTimestamps(np.array([fullArray[0], fullArray[1], fullArray[2]]))
 
-    final_df.to_csv(file.strip('ACC.csv') + 'ACCMag.csv', index=False)
+    data = fullArray[:3]
 
+    final_df = pd.DataFrame({'TimeStamp': times, 'HR': data})
+
+    final_df.to_csv(file.strip('HR.csv') + 'HRTime.csv', index=False)
