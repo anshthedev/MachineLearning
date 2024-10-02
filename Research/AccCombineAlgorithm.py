@@ -6,7 +6,6 @@ import numpy as np
 # used one particpant as testcase due to GitHub sizing limit
 directory = '/Users/ansh/PycharmProjects/LearningPython/Research/Particiapnt 1'
 
-
 def getFiles(searchterm):
     filelist = []
 
@@ -19,8 +18,6 @@ def getFiles(searchterm):
                 filelist = np.append(filelist, os.path.join(dirpath, f))  # create list of target files
 
     return filelist
-
-
 
 def extractHeadersAndData(filename, numHeaderRows):
     fullArray = np.loadtxt(filename, delimiter=',')
