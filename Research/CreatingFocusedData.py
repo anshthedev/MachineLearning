@@ -19,26 +19,20 @@ def getFiles(searchterm):
     return filelist
 
 # recieve data file, timestamp file, and interval length in seconds
-# returns a list of the start and end *indices* of each pre-event slice of the data file
+# returns a list of the start and end times of each pre-event slice of the data file
 # return list format:
 # [
-#   [startIndex1, endIndex1],
-#   [startIndex2, endIndex2],
+#   [startTime1, endTime1],
+#   [startTime2, endTime2],
 #    etc.
 # ]
-def getPreEventStartEnd(file_df, timestamp, seconds):
-    # maybe break this out into helper method:
+def getPreEventStartEndTimes(file_df, timestamp, seconds):
     # create a list for times
     # iterate through the timestamp file
-      # add [timestamp - seconds, timestamp] to list
+      # if (timestamp-seconds) is within the range of the file
+          # add [timestamp - seconds, timestamp] to list
     # return list
-
-    # create list of for indices
-    # iterate through data file
-      # for each item in the timestamp file, see if it falls between this index and the next one.
-      # if so, add this index in the proper place to the indices list
-    #return the indices list
-    
+    # this method should be no longer than these comments
     
     start = timestamp - seconds
     end = timestamp
@@ -55,7 +49,20 @@ def getPreEventStartEnd(file_df, timestamp, seconds):
 
     return file_df[file_df['TimeStamp'] == start].index[0], file_df[file_df['TimeStamp'] == end].index[0]
 
-def getPostEventStartEnd(file_df, timestamp, seconds):
+# receive data file, timestamp file, and interval length in seconds
+# returns a list of the start and end times of each post-event slice of the data file
+# return list format:
+# [
+#   [startTime1, endTime1],
+#   [startTime2, endTime2],
+#    etc.
+# ]
+def getPostEventStartEndTimes(file_df, timestamp, seconds):
+    # create a list for times
+    # iterate through the timestamp file
+      # if timestamp+seconds is within the range of the file
+          # add [timestamp, timestamp + seconds, timestamp] to list
+    # return list
 
     start = timestamp
 
@@ -72,7 +79,30 @@ def getPostEventStartEnd(file_df, timestamp, seconds):
 
     return file_df[file_df['TimeStamp'] == start].index[0], file_df[file_df['TimeStamp'] == end].index[0]
 
+# receives data file, timestamp file and interval length in seconds
+# returns THREE lists: a list of pre-event [start,end] indices, a list of post-event [start,end] indices, and a list of non-event [start,end] indices
+# each of the three lists has format:
+# [
+#   [startIndex1, endIndex1],
+#   [startIndex2, endIndex2],
+#    etc.
+# ]
 def getAllEventIndices(file_path, timestamp, seconds):
+
+    # call getPreEventStartEndTimes, getPostEventStartEndTimes
+    
+    # create list for pre-event indices, list for post-event indices, list for non-event indices
+    # iterate through data file
+      # for each item in each event time files, see if it falls between this index and the next one.
+      # if so, add this index in the proper place to the indices list
+      # you should be able to take advantage of the fact that the end of the pre-event is the start of the post-event
+      # and take advantage of the fact that the timestamps are in chronological order
+      
+      # as you iterate through the data file, create start,end indices for non-event sections. 
+      # each of these sections is (seconds) long, starting at the beginning of the file or at the end of each post-event section
+      # any non-event section that overlaps the start of a pre-event gets discarded
+      # this part is hard - I'll help you more.
+    
     combine_df = pd.DataFrame(columns=["StartPre", "EndPre", "StartPost", "EndPost"])
 
     file = pd.read_csv(file_path)
@@ -97,6 +127,21 @@ def getAllEventIndices(file_path, timestamp, seconds):
         combine_df = pd.concat([combine_df, new_row], ignore_index=True)
 
     return combine_df
+
+
+# receives data file, timestamp file and interval length in seconds
+# then writes three new files containing pre-event data sections, post-event data sections, and non-event data sections.
+def writeAllEventDataWindows(dataFile, timestampFile, seconds):
+    # call getAllEventIndices and store results
+    # use the native slice operator to create slices of the data file
+    # write each slice in the proper shape to the appropriate file
+    # return boolean success or failure
+
+
+    
+
+
+
 
 files = getFiles('tags.csv')
 
