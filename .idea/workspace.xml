@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="6292b135-622a-41ae-8276-232262972efb" name="Changes" comment="Learning how to clean data and it up for machine learning">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Research/AccCombineAlgorithm.py" beforeDir="false" afterPath="$PROJECT_DIR$/Research/AccCombineAlgorithm.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Research/CreatingFocusedData.py" beforeDir="false" afterPath="$PROJECT_DIR$/Research/CreatingFocusedData.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -82,6 +81,7 @@
       <workItem from="1726757563871" duration="11732000" />
       <workItem from="1727291052228" duration="12031000" />
       <workItem from="1727708419434" duration="16912000" />
+      <workItem from="1727890639746" duration="4860000" />
     </task>
     <task id="LOCAL-00001" summary="Learning how to clean data and it up for machine learning">
       <option name="closed" value="true" />

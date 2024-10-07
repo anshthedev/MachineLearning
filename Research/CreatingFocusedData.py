@@ -56,7 +56,7 @@ def getAllEventIndices(file_path, timestamp, seconds):
 
     file = pd.read_csv(file_path)
 
-    column_timestamp = int(time_df.columns[0])
+    column_timestamp = float(time_df.columns[0])
 
     pre_start, pre_end = getPreEventStartEnd(file, column_timestamp, seconds)
     post_start, post_end = getPostEventStartEnd(file, column_timestamp, seconds)
@@ -88,6 +88,7 @@ for file in files:
         print(file)
         print(df)
 
+        df.to_csv(file.strip('tags.csv') + 'FocusedAccIndex.csv', index=False)
         # # testing one file
         # break
 
