@@ -20,6 +20,12 @@ def getFiles(searchterm):
 
 # recieve data file, timestamp file, and interval length in seconds
 # returns a list of the start and end *indices* of each pre-event slice of the data file
+# return list format:
+# [
+#   [startIndex1, endIndex1],
+#   [startIndex2, endIndex2],
+#    etc.
+# ]
 def getPreEventStartEnd(file_df, timestamp, seconds):
     start = timestamp - seconds
     end = timestamp
