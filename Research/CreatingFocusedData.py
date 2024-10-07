@@ -27,12 +27,17 @@ def getFiles(searchterm):
 #    etc.
 # ]
 def getPreEventStartEnd(file_df, timestamp, seconds):
-    # maybe brreak this out into helper method:
+    # maybe break this out into helper method:
     # create a list for times
     # iterate through the timestamp file
       # add [timestamp - seconds, timestamp] to list
     # return list
-    
+
+    # create list of for indices
+    # iterate through data file
+      # for each item in the timestamp file, see if it falls between this index and the next one.
+      # if so, add this index in the proper place to the indices list
+    #return the indices list
     
     
     start = timestamp - seconds
