@@ -42,11 +42,11 @@ def getPreEventStartEndTimes(data_file, timestamp_file, seconds):
     # this step is needed because when iterating it ignore the first row which is the header
     header = float(timestamp_file.columns[0])
 
-    if data_file['TimeStamp'].iloc[0] < (header - seconds) < data_file['TimeStamp'].iloc[-1]:
+    if data_file['TimeStamp'].iloc[0] - seconds < (header - seconds) < data_file['TimeStamp'].iloc[-1]:
         list.append([header - seconds, header])
 
     for timestamp in timestamp_file.iloc[:, 0]:
-        if data_file['TimeStamp'].iloc[0] < (timestamp-seconds) < data_file['TimeStamp'].iloc[-1]:
+        if data_file['TimeStamp'].iloc[0] - seconds < (timestamp-seconds) < data_file['TimeStamp'].iloc[-1]:
             list.append([timestamp-seconds, timestamp])
 
     return list
@@ -73,11 +73,11 @@ def getPostEventStartEndTimes(data_file, timestamp_file, seconds):
     # this step is needed because when iterating it ignore the first row which is the header
     header = float(timestamp_file.columns[0])
 
-    if data_file['TimeStamp'].iloc[0] < (header + seconds) < data_file['TimeStamp'].iloc[-1]:
+    if data_file['TimeStamp'].iloc[0] + seconds < (header + seconds) < data_file['TimeStamp'].iloc[-1]:
         list.append([header, header+seconds])
 
     for timestamp in timestamp_file.iloc[:, 0]:
-        if data_file['TimeStamp'].iloc[0] < (timestamp+seconds) < data_file['TimeStamp'].iloc[-1]:
+        if data_file['TimeStamp'].iloc[0] + seconds < (timestamp+seconds) < data_file['TimeStamp'].iloc[-1]:
             list.append([timestamp, timestamp+seconds])
 
     return list
@@ -110,26 +110,106 @@ def getAllEventIndices(data_file, timestamp, seconds):
     pre_index_list = []
     post_index_list = []
     nonevent_index_list = []
+    all_timestamp = []
 
     # used to store the index values
     startnon = 0
     endnon = 0
-    eventstart = 0
-    eventend = 0
-
-
-    data_file = pd.read_csv(data_file)
+    start_index = 0
+    mid_index = 0
+    num = 1
 
     pre_list = getPreEventStartEndTimes(data_file, timestamp, seconds)
     post_list = getPostEventStartEndTimes(data_file, timestamp, seconds)
 
-    # helps keep track at what index am I on in side data_file
-    index = 0
-    for pre in pre_list:
-        for data_value_time in data_file['TimeStamp']:
-            start, end = pre
+    for i in range(len(pre_list)):
+        all_timestamp.extend(pre_list[i])
+        all_timestamp.append(post_list[i][1])
 
-            # index += 1
+    data_file = pd.read_csv(data_file)
+
+    print(all_timestamp)
+
+    data_index = 0
+
+    # this logic still has some gaps that need to be fixed
+    for data_value in data_file['TimeStamp']:
+        for value in all_timestamp:
+            if value <= data_value and num % 3 == 1:
+                start_index = data_index
+            elif value <= data_value and num % 3 == 2:
+                mid_index = data_index
+
+                pre_index_list.append([start_index, mid_index])
+
+            elif value <= data_value and num % 3 == 0:
+                post_list.append([mid_index, data_index])
+
+        num += 1
+
+    data_index += 1
+
+
+    return pre_index_list, post_index_list
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    # # helps keep track at what index am I on in side data_file
+    # index = 0
+    #
+    # # stores middle index, so I don't need to find it again
+    # mid_index = 0
+
+
+
+
+    # for start_time, end_time in pre_list:
+    #     start = 0
+    #     end = 0
+    #     for data_value_time in data_file['TimeStamp']:
+    #
+    #         if start_time <= data_value_time:
+    #             start = index
+    #
+    #         if end_time <= data_value_time:
+    #             end = index
+    #             break
+    #
+    #         index += 1
+    #
+    #     pre_index_list.append([start, end])
+    #     mid_index = end
+    #     index = 0
+    #
+    # for start_time, end_time in post_list:
+    #     end = 0
+    #     for data_value_time in data_file['TimeStamp']:
+    #
+    #         if start_time <= data_value_time:
+    #             end = index
+    #             break
+    #
+    #         index += 1
+    #
+    #     pre_index_list.append([mid_index, end])
+    #     index = 0
+
 
 # receives data file, timestamp file and interval length in seconds
 # then writes three new files containing pre-event data sections, post-event data sections, and non-event data sections.
@@ -154,6 +234,8 @@ for file in files:
 
         print(getPreEventStartEndTimes(file.strip("tags.csv")+"ACCMag.csv", time_df, 15))
         print(getPostEventStartEndTimes(file.strip("tags.csv")+"ACCMag.csv", time_df, 15))
+        getAllEventIndices(file.strip("tags.csv")+"ACCMag.csv", time_df, 15)
+        print(file.strip("tags.csv"))
 
         #just testing one iteration
         break

@@ -83,6 +83,7 @@
       <workItem from="1727708419434" duration="16912000" />
       <workItem from="1727890639746" duration="4860000" />
       <workItem from="1728314615274" duration="374000" />
+      <workItem from="1728572362950" duration="2709000" />
     </task>
     <task id="LOCAL-00001" summary="Learning how to clean data and it up for machine learning">
       <option name="closed" value="true" />
@@ -116,7 +117,7 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/LearningPython$Testing.coverage" NAME="Testing Coverage Results" MODIFIED="1726588397631" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/LearningPython$firstPython.coverage" NAME="firstPython Coverage Results" MODIFIED="1724341446780" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/LearningPython$CreatingFocusedData.coverage" NAME="CreatingFocusedData Coverage Results" MODIFIED="1728401318682" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Research" />
+    <SUITE FILE_PATH="coverage/LearningPython$CreatingFocusedData.coverage" NAME="CreatingFocusedData Coverage Results" MODIFIED="1728574941663" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Research" />
     <SUITE FILE_PATH="coverage/LearningPython$Doctests_in_validation.coverage" NAME="Doctests in validation Coverage Results" MODIFIED="1725635885879" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/.venv/lib/python3.12/site-packages/sklearn/utils" />
     <SUITE FILE_PATH="coverage/LearningPython$ResearchDataset.coverage" NAME="ResearchDataset Coverage Results" MODIFIED="1726154413388" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/LearningPython$LinearClassification.coverage" NAME="LinearClassification Coverage Results" MODIFIED="1725637172253" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
