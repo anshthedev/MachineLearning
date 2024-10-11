@@ -117,98 +117,46 @@ def getAllEventIndices(data_file, timestamp, seconds):
     endnon = 0
     start_index = 0
     mid_index = 0
-    num = 1
 
     pre_list = getPreEventStartEndTimes(data_file, timestamp, seconds)
     post_list = getPostEventStartEndTimes(data_file, timestamp, seconds)
 
+    # creates array that has all time stamp values neatly
     for i in range(len(pre_list)):
         all_timestamp.extend(pre_list[i])
         all_timestamp.append(post_list[i][1])
 
     data_file = pd.read_csv(data_file)
 
-    print(all_timestamp)
-
+    # loop tracking
     data_index = 0
+    i=0
 
     # this logic still has some gaps that need to be fixed
     for data_value in data_file['TimeStamp']:
-        for value in all_timestamp:
-            if value <= data_value and num % 3 == 1:
-                start_index = data_index
-            elif value <= data_value and num % 3 == 2:
+        data_index += 1
+        if i < len(all_timestamp):
+            if all_timestamp[i] <= data_value and i % 3 == 0:
+                start_index = data_index-1
+                i += 1
+
+            elif all_timestamp[i] <= data_value and i % 3 == 1:
                 mid_index = data_index
+                i += 1
+
 
                 pre_index_list.append([start_index, mid_index])
 
-            elif value <= data_value and num % 3 == 0:
-                post_list.append([mid_index, data_index])
+            elif all_timestamp[i] <= data_value and i % 3 == 2:
+                post_index_list.append([mid_index, data_index])
 
-        num += 1
-
-    data_index += 1
-
+                i += 1
 
     return pre_index_list, post_index_list
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    # # helps keep track at what index am I on in side data_file
-    # index = 0
-    #
-    # # stores middle index, so I don't need to find it again
-    # mid_index = 0
-
-
-
-
-    # for start_time, end_time in pre_list:
-    #     start = 0
-    #     end = 0
-    #     for data_value_time in data_file['TimeStamp']:
-    #
-    #         if start_time <= data_value_time:
-    #             start = index
-    #
-    #         if end_time <= data_value_time:
-    #             end = index
-    #             break
-    #
-    #         index += 1
-    #
-    #     pre_index_list.append([start, end])
-    #     mid_index = end
-    #     index = 0
-    #
-    # for start_time, end_time in post_list:
-    #     end = 0
-    #     for data_value_time in data_file['TimeStamp']:
-    #
-    #         if start_time <= data_value_time:
-    #             end = index
-    #             break
-    #
-    #         index += 1
-    #
-    #     pre_index_list.append([mid_index, end])
-    #     index = 0
 
 
 # receives data file, timestamp file and interval length in seconds
@@ -218,8 +166,6 @@ def getAllEventIndices(data_file, timestamp, seconds):
     # use the native slice operator to create slices of the data file
     # write each slice in the proper shape to the appropriate file
     # return boolean success or failure
-
-
 
 
 
