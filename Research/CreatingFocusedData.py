@@ -132,7 +132,6 @@ def getAllEventIndices(data_file, timestamp, seconds):
     data_index = 0
     i=0
 
-    # this logic still has some gaps that need to be fixed
     for data_value in data_file['TimeStamp']:
         data_index += 1
         if i < len(all_timestamp):
