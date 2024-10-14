@@ -137,6 +137,9 @@ def getAllEventIndices(data_file, timestamp, seconds):
         if i < len(all_timestamp):
             if all_timestamp[i] <= data_value and i % 3 == 0:
                 start_index = data_index-1
+                endnon = data_index
+
+                nonevent_index_list.append([startnon, endnon])
                 i += 1
 
             elif all_timestamp[i] <= data_value and i % 3 == 1:
@@ -148,10 +151,18 @@ def getAllEventIndices(data_file, timestamp, seconds):
 
             elif all_timestamp[i] <= data_value and i % 3 == 2:
                 post_index_list.append([mid_index, data_index])
+                startnon = data_index - 1
+
+                if(i == len(all_timestamp)-1):
+                    nonevent_index_list.append([data_index, len(data_file)])
 
                 i += 1
 
-    return pre_index_list, post_index_list
+    print(f"Pre_Indices: {pre_index_list}")
+    print(f"Post_Indices: {post_index_list}")
+    print(f"Nonevent_Indices: {nonevent_index_list}")
+
+    return pre_index_list, post_index_list, nonevent_index_list
 
 
 
