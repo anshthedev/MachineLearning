@@ -169,13 +169,42 @@ def getAllEventIndices(data_file, timestamp, seconds):
 
 
 
-# receives data file, timestamp file and interval length in seconds
+# receives data file location, timestamp file and interval length in seconds
 # then writes three new files containing pre-event data sections, post-event data sections, and non-event data sections.
-# def writeAllEventDataWindows(dataFile, timestampFile, seconds):
+def writeAllEventDataWindows(data_file, timestampFile, seconds):
+
     # call getAllEventIndices and store results
+    pre_index_list, post_index_list, nonevent_index_list = getAllEventIndices(data_file, timestampFile, seconds)
+
+    pre_event_data = []
+    post_event_data = []
+    nonevent_data = []
+
+    data_file = pd.read_csv(data_file)
+
     # use the native slice operator to create slices of the data file
-    # write each slice in the proper shape to the appropriate file
+    for array in pre_index_list:
+        pre_event_data.append(data_file.iloc[array[0]:array[1]])
+
+    for array in pre_index_list:
+        post_event_data.append(data_file.iloc[array[0]:array[1]])
+
+    for array in pre_index_list:
+        nonevent_data.append(data_file.iloc[array[0]:array[1]])
+
+
+    # Concatenate the lists into final DataFrames
+    pre_event_df = pd.concat(pre_event_data, ignore_index=True)
+    post_event_df = pd.concat(post_event_data, ignore_index=True)
+    nonevent_df = pd.concat(nonevent_data, ignore_index=True)
+
+    # Write the data to new CSV files
+    pre_event_df.to_csv("pre_event_data.csv", index=False)
+    post_event_df.to_csv("post_event_data.csv", index=False)
+    nonevent_df.to_csv("nonevent_data.csv", index=False)
+
     # return boolean success or failure
+    return True
 
 
 
@@ -192,6 +221,8 @@ for file in files:
         print(getPostEventStartEndTimes(file.strip("tags.csv")+"ACCMag.csv", time_df, 15))
         getAllEventIndices(file.strip("tags.csv")+"ACCMag.csv", time_df, 15)
         print(file.strip("tags.csv"))
+
+        print(writeAllEventDataWindows(file.strip("tags.csv")+"ACCMag.csv", time_df, 15))
 
         #just testing one iteration
         break
