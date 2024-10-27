@@ -4,7 +4,7 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import mean_absolute_error
 from sklearn.model_selection import train_test_split
 
-melbourne_data = pd.read_csv("/Users/ansh/PycharmProjects/LearningPython/MachineLearning/melb_data.csv")
+melbourne_data = pd.read_csv("/Users/ansh/PycharmProjects/LearningPython/MachineLearning/Datasets/melb_data.csv")
 
 features = ["Rooms", "Bathroom", "Landsize", "Lattitude","Longtitude"]
 
