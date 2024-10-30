@@ -5,16 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6292b135-622a-41ae-8276-232262972efb" name="Changes" comment="Learning how to clean data and it up for machine learning">
-      <change afterPath="$PROJECT_DIR$/MachineLearning/Datasets/californiaHousePrices.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MachineLearning/Datasets/ecommerce.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MachineLearning/Datasets/housePrices.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MachineLearning/Datasets/tslaStockPrice.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MachineLearning/LinearRegression.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MachineLearning/TSLAStockPricePredicition.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MachineLearning/housePricePredictor.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MachineLearning/CalculateError.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MachineLearning/Datasets/titanic_data.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MachineLearning/ModelCreator.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MachineLearning/SurvivedTitanicPredictor.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MachineLearning/PredictingHousePrices.py" beforeDir="false" afterPath="$PROJECT_DIR$/MachineLearning/PredictingHousePrices.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MachineLearning/melb_data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/MachineLearning/Datasets/melb_data.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MachineLearning/CancerPredictor.py" beforeDir="false" afterPath="$PROJECT_DIR$/MachineLearning/CancerPredictor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MachineLearning/Testing.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,6 +34,7 @@
   "keyToString": {
     "Python tests.Doctests in validation.executor": "Run",
     "Python.AccCombineAlgorithm.executor": "Run",
+    "Python.CancerPredictor.executor": "Run",
     "Python.CleaningData.executor": "Run",
     "Python.CleaningSamsthanOrder.executor": "Run",
     "Python.CreatingFocusedData.executor": "Run",
@@ -45,6 +43,7 @@
     "Python.LinearRegression.executor": "Run",
     "Python.PredictingHousePrices.executor": "Run",
     "Python.ResearchDataset.executor": "Run",
+    "Python.SurvivedTitanicPredictor.executor": "Run",
     "Python.TSLAStockPricePredicition.executor": "Run",
     "Python.Testing.executor": "Run",
     "Python.californiaHousePredict.executor": "Run",
@@ -110,6 +109,8 @@
       <workItem from="1729177932616" duration="11276000" />
       <workItem from="1729696466613" duration="9914000" />
       <workItem from="1729866572981" duration="2117000" />
+      <workItem from="1730127567217" duration="6639000" />
+      <workItem from="1730214154752" duration="5822000" />
     </task>
     <task id="LOCAL-00001" summary="Learning how to clean data and it up for machine learning">
       <option name="closed" value="true" />
@@ -149,10 +150,12 @@
     <SUITE FILE_PATH="coverage/LearningPython$californiaHousePredict.coverage" NAME="californiaHousePredict Coverage Results" MODIFIED="1729867633330" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/MachineLearning" />
     <SUITE FILE_PATH="coverage/LearningPython$HousePrices.coverage" NAME="HousePrices Coverage Results" MODIFIED="1729092865942" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/MachineLearning" />
     <SUITE FILE_PATH="coverage/LearningPython$CleaningData.coverage" NAME="CleaningData Coverage Results" MODIFIED="1724773607773" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/LearningPython$housePricePredictor.coverage" NAME="housePricePredictor Coverage Results" MODIFIED="1729867925805" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/MachineLearning" />
+    <SUITE FILE_PATH="coverage/LearningPython$housePricePredictor.coverage" NAME="housePricePredictor Coverage Results" MODIFIED="1730129879316" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/MachineLearning" />
     <SUITE FILE_PATH="coverage/LearningPython$Doctests_in_validation.coverage" NAME="Doctests in validation Coverage Results" MODIFIED="1725635885879" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/.venv/lib/python3.12/site-packages/sklearn/utils" />
     <SUITE FILE_PATH="coverage/LearningPython$AccCombineAlgorithm.coverage" NAME="AccCombineAlgorithm Coverage Results" MODIFIED="1727190171618" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Research" />
-    <SUITE FILE_PATH="coverage/LearningPython$LinearClassification.coverage" NAME="LinearClassification Coverage Results" MODIFIED="1725637172253" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/LearningPython$LinearClassification.coverage" NAME="LinearClassification Coverage Results" MODIFIED="1730130040510" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/MachineLearning" />
+    <SUITE FILE_PATH="coverage/LearningPython$SurvivedTitanicPredictor.coverage" NAME="SurvivedTitanicPredictor Coverage Results" MODIFIED="1730217433869" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/MachineLearning" />
+    <SUITE FILE_PATH="coverage/LearningPython$CancerPredictor.coverage" NAME="CancerPredictor Coverage Results" MODIFIED="1730215648378" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/MachineLearning" />
     <SUITE FILE_PATH="coverage/LearningPython$CleaningSamsthanOrder.coverage" NAME="CleaningSamsthanOrder Coverage Results" MODIFIED="1725983181306" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/LearningPython$LinearRegression.coverage" NAME="LinearRegression Coverage Results" MODIFIED="1729784478511" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/MachineLearning" />
     <SUITE FILE_PATH="coverage/LearningPython$TSLAStockPricePredicition.coverage" NAME="TSLAStockPricePredicition Coverage Results" MODIFIED="1729867026458" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/MachineLearning" />
