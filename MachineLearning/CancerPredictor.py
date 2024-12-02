@@ -35,7 +35,7 @@ x_range_df = pd.DataFrame(x_range, columns=['radius_mean'])
 
 # lr.predict-proba will create 2D array showing probability for each classifcation
 # to actually plot it all we need is the probability that it is 1 so we just grab
-# the last column
+# the last column (we are not finding the output but rather the probability)
 y_probs = lr.predict_proba(x_range_df)[:, 1]
 plt.plot(x_range, y_probs, color='red', label='Logistic Curve')
 
