@@ -1,8 +1,5 @@
 # Fixes Certificate Errors
 import ssl
-
-from tensorflow.python.layers.core import flatten
-
 ssl._create_default_https_context = ssl._create_unverified_context
 
 # Import Dependencies and Libraries
@@ -47,9 +44,33 @@ class DatasetConfig:
 
 @dataclass(frozen=True)
 class TrainingConfig:
-    EPOCHS: int = 31 # number of times the model will go through the entire dataset
+    EPOCHS: int = 10 # number of times the model will go through the entire dataset
     BATCH_SIZE: int = 256 # amount pictures the model has to go through before changing features
     LEARNING_RATE: float = 0.001 # max amount the feature will change through iterations
+
+def plot_results(metrics, title=None, ylabel = None, ylim = None, metric_name = None, color = None):
+    fig, ax = plt.subplots(figsize=(15, 4))
+
+    if not (isinstance(metric_name, list) or isinstance(metric_name, tuple)):
+        metrics = [metrics,]
+        metric_name = [metric_name,]
+
+    for idx, metric in enumerate(metrics):
+        ax.plot(metric, color=color[idx])
+
+    plt.xlabel("Epoch")
+    plt.ylabel(ylabel)
+    plt.title(title)
+    plt.xlim(0, TrainingConfig.EPOCHS-1)
+    plt.ylim(ylim)
+
+    ax.xaxis.set_major_locator(MultipleLocator(5))
+    ax.xaxis.set_major_formatter(FormatStrFormatter('%d'))
+    ax.xaxis.set_minor_locator(MultipleLocator(1))
+    plt.grid(True)
+    plt.legend(metric_name)
+    plt.show()
+    plt.close()
 
 
 def cnn_model(input_shape = (32, 32, 3)):
@@ -120,3 +141,22 @@ history = model.fit(
     verbose=1, # Helps monitor training by outputting basic updates
     validation_split=0.3
 )
+
+
+train_acc = history.history['acc']
+train_loss = history.history['loss']
+val_acc = history.history['val_acc']
+val_loss = history.history['val_loss']
+
+plot_results([train_loss, val_loss],
+             ylabel = "Loss",
+             ylim = [0.0, 5.0],
+             metric_name = ["Training Loss", "Validation Loss"],
+             color = ["g", "b"])
+
+
+plot_results([train_acc, val_acc],
+             ylabel = "Accuracy",
+             ylim = [0.0, 1.0],
+             metric_name = ["Training Accuracy", "Validation Accuracy"],
+             color = ["g", "b"])
