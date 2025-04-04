@@ -93,6 +93,7 @@ def cnn_model(input_shape = (32, 32, 3)):
     model.add(Conv2D(filters=32, kernel_size=3, padding = "same", activation='relu', input_shape=input_shape))
     model.add(Conv2D(filters=32, kernel_size=3, padding = "same", activation='relu'))
     model.add(MaxPooling2D(pool_size=(2,2)))
+    model.add(Dropout(0.25))
 
     #-------------------------------------------------
     # Conv Block 2: 64 Filters with Max Pooling
@@ -100,6 +101,7 @@ def cnn_model(input_shape = (32, 32, 3)):
     model.add(Conv2D(filters=64, kernel_size=3, padding = "same", activation='relu'))
     model.add(Conv2D(filters=64, kernel_size=3, padding = "same", activation='relu'))
     model.add(MaxPooling2D(pool_size=(2,2)))
+    model.add(Dropout(0.25))
 
     #-------------------------------------------------
     # Conv Block 3: 64 Filters with Max Pooling
@@ -107,12 +109,14 @@ def cnn_model(input_shape = (32, 32, 3)):
     model.add(Conv2D(filters=64, kernel_size=3, padding = "same", activation='relu'))
     model.add(Conv2D(filters=64, kernel_size=3, padding = "same", activation='relu'))
     model.add(MaxPooling2D(pool_size=(2,2)))
+    model.add(Dropout(0.25))
 
     #-------------------------------------------------
     # Flatten Features
     #-------------------------------------------------
     model.add(Flatten())
     model.add(Dense(512, activation='relu'))
+    model.add(Dropout(0.5))
 
     # Softmax helps convert the output array into probability array
     # Example:
@@ -139,13 +143,12 @@ history = model.fit(
     batch_size=TrainingConfig.BATCH_SIZE,
     epochs=TrainingConfig.EPOCHS,
     verbose=1, # Helps monitor training by outputting basic updates
-    validation_split=0.3
+    validation_split=0.3 # keep 30% of dataset for validation purposes during training
 )
 
-
-train_acc = history.history['acc']
+train_acc = history.history['accuracy']
 train_loss = history.history['loss']
-val_acc = history.history['val_acc']
+val_acc = history.history['val_accuracy']
 val_loss = history.history['val_loss']
 
 plot_results([train_loss, val_loss],
@@ -154,9 +157,29 @@ plot_results([train_loss, val_loss],
              metric_name = ["Training Loss", "Validation Loss"],
              color = ["g", "b"])
 
-
 plot_results([train_acc, val_acc],
              ylabel = "Accuracy",
              ylim = [0.0, 1.0],
              metric_name = ["Training Accuracy", "Validation Accuracy"],
              color = ["g", "b"])
+
+# Testing the test case accuracy
+test_loss, test_acc = model.evaluate(X_test, y_test)
+print(f"Test Accuracy: {test_acc * 100 : 3f}")
+
+# The Order is According to Dataset Documentation
+class_names = ['airplane', 'automobile', 'bird', 'cat', 'deer',
+               'dog', 'frog', 'horse', 'ship', 'truck']
+
+# Testing and Displaying First 10 Images with Outputs
+for i in range(10):
+
+  # Predicting
+  pred = model.predict(X_test[i:i+1]) # using splice since model.predict expects a batch
+  predicted_class = class_names[np.argmax(pred)]  # finds indice of largest value
+
+  # Plot with label
+  plt.imshow(X_test[i])
+  plt.title(f"Predicted: {predicted_class}")
+  plt.axis('off')
+  plt.show()
