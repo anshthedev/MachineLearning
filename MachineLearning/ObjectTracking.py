@@ -31,6 +31,11 @@ while ret:
     # Saturate the frame before processing it further
     frame = saturate_frame(frame, saturation_factor=1.5)
 
+    pts2 = np.float32([[0,0],[400,0],[0,600],[400,600]])
+    matrix = cv2.getPerspectiveTransform(pts1, pts2)
+
+    result = cv2.wrapPerspective(frame, matrix, (400,600))
+
     hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
 
     # Binary Operation:
@@ -65,6 +70,7 @@ while ret:
         print( angle)
 
     cv2.imshow("frame", frame)
+    cv2.imshow("result) result)
     cv2.imshow("mask", mask)
 
     # # Debugging Lower and Upper Bounds
